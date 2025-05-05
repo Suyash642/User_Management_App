@@ -1,11 +1,18 @@
+import { Navigate, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import UserList from "./components/UserList";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Navbar />
-      <h2 className="text-center" style={{ marginTop: '6em' }}>Welcome to User Management Application!</h2>
-    </div>
+      <Routes>
+        {/* Default route redirects to /users */}
+        <Route path="/" element={<Navigate to="/users" />} />
+        {/* User List Route */}
+        <Route path="/users" element={<UserList />} />
+      </Routes>
+    </>
   );
 }
 
